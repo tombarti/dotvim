@@ -1,5 +1,4 @@
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+execute pathogen#infect()
 
 " All system-wide defaults are set in $VIMRUNTIME/debian.vim and sourced by
 " the call to :runtime you can find below.  If you wish to change any of those
@@ -31,6 +30,9 @@ endif
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
 " set background=dark
+
+" turns off vim sessions default:
+set sessionoptions-=options
 
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
