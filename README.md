@@ -1,3 +1,3 @@
-Create a symbolic link so that $$~/.vimrc$$ points to $$~/.vim/vimrc$$
+Create a symbolic link so that __~/.vimrc__ points to __~/.vim/vimrc__
  
 `~/.vim/vimrc ~/.vimrc`
