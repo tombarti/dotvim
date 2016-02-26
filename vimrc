@@ -51,6 +51,11 @@ if has("autocmd")
   autocmd bufwritepost .vimrc source $MYVIMRC
 endif
 
+" set relative numbering in vim
+set relativenumber
+" toggles current line number between 0 and actual line number
+nmap <C-N><C-N> :set invnumber<CR>
+
 let mapleader = ","
 nmap <leader>v :tabedit $MYVIMRC<CR>
 
