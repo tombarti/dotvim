@@ -1,5 +1,3 @@
-execute pathogen#infect()
-
 " All system-wide defaults are set in $VIMRUNTIME/debian.vim and sourced by
 " the call to :runtime you can find below.  If you wish to change any of those
 " settings, you should do it in this file (/etc/vim/vimrc), since debian.vim
@@ -10,6 +8,9 @@ execute pathogen#infect()
 " This line should not be removed as it ensures that various options are
 " properly set to work with the Vim-related packages available in Debian.
 runtime! debian.vim
+
+" Pathogen
+execute pathogen#infect()
 
 " Uncomment the next line to make Vim more Vi-compatible
 " NOTE: debian.vim sets 'nocompatible'.  Setting 'compatible' changes numerous
@@ -44,6 +45,7 @@ endif
 " according to the detected filetype.
 if has("autocmd")
   filetype plugin indent on
+  autocmd BufReadPost fugitive://* set bufhidden=delete
 endif
 
 " automatically source vimrc file once it is saved
