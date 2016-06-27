@@ -25,6 +25,7 @@ filetype off                  " required
 if has("syntax")
   syntax on
   "set background=dark
+  set t_Co=256
   let base16colorspace=256  " Access colors present in 256 colorspace
   colorscheme holokai
 endif
@@ -32,8 +33,19 @@ endif
 " turn on this option as well
 " set background=dark
 
+" autocomplete stuff
+set wildmode=longest:full,list:full
+
 " turns off vim sessions default:
 set sessionoptions-=options
+
+" tab stuff maggle
+set tabstop=2
+set softtabstop=2 
+set shiftwidth=2 
+
+" limit text to 80 characters per line
+set textwidth=79
 
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
@@ -48,6 +60,13 @@ if has("autocmd")
   autocmd BufReadPost fugitive://* set bufhidden=delete
 endif
 
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+
+" Enable folding with the spacebar
+nnoremap <space> za
+
 " automatically source vimrc file once it is saved
 if has("autocmd")
   autocmd bufwritepost .vimrc source $MYVIMRC
@@ -57,6 +76,11 @@ endif
 set relativenumber
 " toggles current line number between 0 and actual line number
 nmap <C-N><C-N> :set invnumber<CR>
+
+nnoremap <C-Up> :m-2<CR>
+nnoremap <C-Down> :m+<CR>
+inoremap <C-Up> <Esc>:m-2<CR>
+inoremap <C-Down> <Esc>:m+<CR>
 
 let mapleader = ","
 nmap <leader>v :tabedit $MYVIMRC<CR>

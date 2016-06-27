@@ -21,7 +21,7 @@ endif
 let g:colors_name="holokai"
 
 hi Normal           guifg=#bcbcbc   guibg=#000000
-hi Comment          guifg=#808080
+hi Comment          guifg=#808080                   gui=bold
 hi CursorLine                       guibg=#080808   gui=none
 hi CursorColumn                     guibg=#080808
 hi ColorColumn                      guibg=#080808
