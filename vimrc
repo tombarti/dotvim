@@ -27,7 +27,7 @@ if has("syntax")
   "set background=dark
   set t_Co=256
   let base16colorspace=256  " Access colors present in 256 colorspace
-  colorscheme holokai
+  colorscheme onehalfdark
 endif
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
@@ -39,13 +39,24 @@ set wildmode=longest:full,list:full
 " turns off vim sessions default:
 set sessionoptions-=options
 
+" Show extra whitespace
+set list
+set listchars=tab:>-,trail:.,precedes:<,extends:>
+
 " tab stuff maggle
 set tabstop=2
-set softtabstop=2 
-set shiftwidth=2 
+set softtabstop=2
+set shiftwidth=2
 
 " limit text to 80 characters per line
 set textwidth=79
+
+" SPLIT STUFF
+set splitright
+set splitbelow
+" shortcuts to change views in split mode
+nmap <silent> <A-Left> :wincmd h<CR>
+nmap <silent> <A-Right> :wincmd l<CR>
 
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
@@ -63,9 +74,9 @@ endif
 " Enable folding
 set foldmethod=indent
 set foldlevel=99
-
 " Enable folding with the spacebar
 nnoremap <space> za
+
 
 " automatically source vimrc file once it is saved
 if has("autocmd")
@@ -97,7 +108,7 @@ set hidden		" Hide buffers when they are abandoned
 set mouse=a		" Enable mouse usage (all modes)
 
 " Source a global configuration file if available
-if filereadable("/etc/vim/vimrc.local")
-  source /etc/vim/vimrc.local
-endif
+"if filereadable("/etc/vim/vimrc.local")
+"  source /etc/vim/vimrc.local
+"endif
 
