@@ -81,6 +81,7 @@ nnoremap <space> za
 " automatically source vimrc file once it is saved
 if has("autocmd")
   autocmd bufwritepost .vimrc source $MYVIMRC
+  au VimEnter * NERDTree
 endif
 
 " set relative numbering in vim
