@@ -18,7 +18,6 @@ execute pathogen#infect()
 "set compatible
 
 set nocompatible              " be iMproved, required
-filetype off                  " required
 
 " Vim5 and later versions support syntax highlighting. Uncommenting the next
 " line enables syntax highlighting by default.
@@ -39,15 +38,6 @@ set wildmode=longest:full,list:full
 " turns off vim sessions default:
 set sessionoptions-=options
 
-" Show extra whitespace
-set list
-set listchars=tab:>-,trail:.,precedes:<,extends:>
-
-" tab stuff maggle
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
-
 " limit text to 80 characters per line
 set textwidth=79
 
@@ -57,6 +47,8 @@ set splitbelow
 " shortcuts to change views in split mode
 nmap <silent> <A-Left> :wincmd h<CR>
 nmap <silent> <A-Right> :wincmd l<CR>
+nmap <silent> <A-Up> :wincmd k<CR>
+nmap <silent> <A-Down> :wincmd j<CR>
 
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
@@ -82,10 +74,12 @@ nnoremap <space> za
 if has("autocmd")
   autocmd bufwritepost .vimrc source $MYVIMRC
   au VimEnter * NERDTree
+  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 endif
 
 " set relative numbering in vim
 set relativenumber
+set number
 " toggles current line number between 0 and actual line number
 nmap <C-N><C-N> :set invnumber<CR>
 
@@ -95,7 +89,12 @@ inoremap <C-Up> <Esc>:m-2<CR>
 inoremap <C-Down> <Esc>:m+<CR>
 
 let mapleader = ","
-nmap <leader>v :tabedit $MYVIMRC<CR>
+nmap <leader>v :vsp $MYVIMRC<CR>
+
+map <Leader>e :MBEOpen<CR>
+map <Leader>c :MBEClose<CR>
+map <Leader>t :MBEToggle<CR>
+map <Leader>f :MBEFocus<CR>
 
 " The following are commented out as they cause vim to behave a lot
 " differently from regular Vi. They are highly recommended though.
