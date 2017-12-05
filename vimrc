@@ -32,6 +32,16 @@ endif
 " turn on this option as well
 " set background=dark
 
+" IMPORTANT: grep will sometimes skip displaying the file name if you
+" search in a singe file. This will confuse Latex-Suite. Set your grep
+" program to always generate a file-name.
+set grepprg=grep\ -nH\ $*
+
+" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
+" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
+" The following changes the default filetype back to 'tex':
+let g:tex_flavor='latex'
+
 " autocomplete stuff
 set wildmode=longest:full,list:full
 
@@ -95,6 +105,8 @@ map <Leader>e :MBEOpen<CR>
 map <Leader>c :MBEClose<CR>
 map <Leader>t :MBEToggle<CR>
 map <Leader>f :MBEFocus<CR>
+nnoremap <Leader>a zg
+nnoremap <Leader>s z=
 
 " The following are commented out as they cause vim to behave a lot
 " differently from regular Vi. They are highly recommended though.
